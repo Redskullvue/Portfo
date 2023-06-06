@@ -3,8 +3,7 @@
   
 <head>
     <title>
-        How to change style of elements 
-        on scroll using jQuery?
+        New OStudio
     </title>
     <link
     rel="stylesheet"
@@ -27,15 +26,15 @@
         html{
             scroll-behavior: smooth;
             height : 3000px;
-            background-color :green;
+            background-color :darkgreen;
         }
         .all{
-            background-color : green;
+            background-color : darkgreen;
         }
         .wrapper{
             width : screen;
             height : 1000px;
-            background-color : green;
+            background-color : darkgreen;
             display : flex;
             justify-content: center;
             align-items: center;
@@ -154,19 +153,38 @@
         }
         .works-1{
             animation-delay: 0.2s;
+            /* position : absolute;
+            left : 40%;
+            top : 220%; */
         }
         .works-2{
             animation-delay: 0.4s;
+            /* left : 44%;
+            top : 225%;
+            position :absolute; */
         }
         .works-3{
             animation-delay: 0.6s;
+            /* position:absolute;
+            top : 221%;
+            left : 48%; */
         }
         .works-4{
             animation-delay: 0.8s;
+            /* position : absolute;
+            top : 226%;
+            left : 52%; */
+        }
+        .works-5{
+            animation-delay : 0.3s;
+            /* position : absolute;
+            top : 221%;
+            left : 56%; */
         }
         .img{
             width : 300px;
             height : 400px;
+            transition : 1s all;
         }
         .about{
             display : none;
@@ -175,7 +193,7 @@
             color : #ffffff;
             width : 100%;
             height :600px;
-            background-color :darkgreen;
+            background-color :green;
             display :flex;
             justify-content : center;
             align-items: center;
@@ -198,13 +216,19 @@
             justify-content: center;
         }
         .works{
-            font-size : 82px;
+            font-size : 92px;
             color : #ffffff;
         }
         .project{
             display : none;
         }
         .project-2{
+            display : none;
+        }
+        .project-3{
+            display : none;
+        }
+        .project-4{
             display : none;
         }
         .scrolled-project{
@@ -224,11 +248,33 @@
             float:right;
             animation-duration : 2.3s;
         }
+        .scrolled-project-3{
+            color : #ffffff;
+            display :flex;
+            align-items: center;
+            cursor: pointer;
+            margin : 0 200px;
+            animation-duration : 2.3s;
+        }
+        .scrolled-project-4{
+            color : #ffffff;
+            display :flex;
+            align-items: center;
+            cursor: pointer;
+            margin : 0 200px;
+            float:right;
+            animation-duration : 2.3s;
+        }
         .project-text{
             margin-left : 100px;
         }
         .projects-main{
             height : 1000px;
+        }
+        .img:hover{
+            filter:grayscale(100%);
+            box-shadow : 2px 1px 10px black;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -289,11 +335,11 @@
         </div> 
     </div>
     <div class="projects-main">
-        <div class="project animate__animated animate__slideInLeft">
+        <div class="project-3 animate__animated animate__slideInLeft">
             <img class="img" src="./images/Building.jpg" alt="images" />
             <h2 class="project-text">Ostudio Project</h2>
         </div> 
-        <div class="project-2 animate__animated animate__slideInRight">
+        <div class="project-4 animate__animated animate__slideInRight">
             <img class="img" src="./images/Building.jpg" alt="images" />
             <h2 class="project-text">Ostudio Project</h2>
         </div> 
@@ -307,7 +353,9 @@
             var aboutTxt= $(".about-text");
             var projects = $(".projects");
             var project = $(".project")
-            var project2 = $(".project-2")
+            var project2 = $(".project-2");
+            var project3 = $(".project-3");
+            var project4 = $(".project-4");
             $(window).scroll(function () {
                 var scroll = $(window).scrollTop();
                 if (scroll >= 555) {
@@ -329,14 +377,20 @@
                 if(scroll>=850){
                     aboutTxt.removeClass("about-text").addClass("scrolled-about-text").addClass("animate__fadeInUp")
                 }
-                if(scroll >=1100){
+                if(scroll >=1300){
                     projects.removeClass("projects").addClass("scrolled-projects")
                 }
                 if(scroll >=1600){
                     project.removeClass("project").addClass("scrolled-project")
                 }
-                if(scroll>=2400){
+                if(scroll>=2200){
                     project2.removeClass("project-2").addClass("scrolled-project-2")
+                }
+                if(scroll>=2400){
+                    project3.removeClass("project-3").addClass("scrolled-project-3");
+                }
+                if(scroll >=3000){
+                    project4.removeClass("project-4").addClass("scrolled-project-4")
                 }
                 // if(scroll>=900){
                 //     var height = aboutCont.height();
