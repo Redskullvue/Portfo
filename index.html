@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>
+        How to change style of elements 
+        on scroll using jQuery?
+    </title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+  
+    <style>
+        *{
+            padding : 0px;
+            margin : 0px;
+            box-sizing : border-box;
+            font-family: 'Acme', sans-serif;
+        }
+        html{
+            scroll-behavior: smooth;
+            height : 3000px;
+            background-color :green;
+        }
+        .all{
+            background-color : green;
+        }
+        .wrapper{
+            width : screen;
+            height : 1000px;
+            background-color : green;
+            display : flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image__circle{
+            width : 400px;
+            height : 400px;
+            border-radius : 50%;
+            background-color : #ffffff;
+            position : absolute;
+            left : 30%;
+            top : 30%;
+            background-image:url(./images/images.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size:cover;
+            padding :20px;
+            transition : 1s all;
+            animation-duration: 3s;
+        }
+        .name__circle{
+            font-size :120px;
+            color : yellowgreen;
+        }
+        .word-1{
+            position :absolute;
+            left : 5%;
+            animation-delay: 0.3s;
+        }
+        .word-2{
+            position : absolute; 
+            top : 10%;
+            right : 0%;
+            animation-delay: 0.5s;
+        }
+        .word-3{
+            position:absolute;
+            left : 20%;
+            bottom : 2%;
+            animation-delay: 0.7s;
+        }
+        .word-4{
+            position : absolute;
+            bottom : 0%;
+            right : 2%;
+            animation-delay: 0.9s;
+        }
+        .main__title{
+            font-size : 42px;
+            position : absolute;
+            right : 20%;
+            color :#ffffff;
+            animation-duration: 3s;
+            bottom : 15%;
+        }
+        .scroller{
+            width :screen;
+            height : 1000px;
+            display : flex;
+            justify-content:end;
+            margin-top :100px;
+            padding-right : 150px;
+        }
+        .box {
+            width : 200px;
+            height : 0px;
+            margin-top : 100px;
+            display : none;
+            background-color : blue;
+            position:absolute;
+        }
+        .scrolled-box{
+            display : block;
+            width : 300px;
+            height : 400px;
+            margin-top :100px;
+            background-color : #f5f5f5;
+            animation-duration: 2.3s;
+            position: absolute;
+            z-index: 999999 !important;
+        }
+        .box__info{
+            display :block;
+            color : yellowgreen;
+            font-size : 120px;
+        }
+        .about-1{
+            position : absolute;
+            left : -20%;
+            top : -40%;
+            animation-delay: 0.3s;
+        }
+        .about-2{
+            position : absolute;
+            right : -10%;
+            top : -15%;
+            animation-delay: 0.5s;
+        }
+        .about-3{
+            position : absolute;
+            left : -15%;
+            top: 20%;
+            animation-delay: 0.6s;
+        }
+        .about-4{
+            position : absolute;
+            right : -15%;
+            top : 40%;
+            animation-delay: 0.8s;
+        }
+        .about-5{
+            position: absolute;
+            right : 30%;
+            bottom : -20%;
+            animation-delay: 0.9s;
+        }
+        .works-1{
+            animation-delay: 0.2s;
+        }
+        .works-2{
+            animation-delay: 0.4s;
+        }
+        .works-3{
+            animation-delay: 0.6s;
+        }
+        .works-4{
+            animation-delay: 0.8s;
+        }
+        .img{
+            width : 300px;
+            height : 400px;
+        }
+        .about{
+            display : none;
+        }
+        .scrolled-about{
+            color : #ffffff;
+            width : 100%;
+            height :600px;
+            background-color :darkgreen;
+            display :flex;
+            justify-content : center;
+            align-items: center;
+        }
+        .about-text{
+            display : none;
+        }
+        .scrolled-about-text{
+            display: block;
+            width : 500px;
+            font-size : 24px; 
+        }
+        .projects{
+            display : none;
+        }
+        .scrolled-projects{
+            width : screen;
+            height : 300px;
+            display : flex;
+            justify-content: center;
+        }
+        .works{
+            font-size : 82px;
+            color : #ffffff;
+        }
+        .project{
+            display : none;
+        }
+        .project-2{
+            display : none;
+        }
+        .scrolled-project{
+            color : #ffffff;
+            display :flex;
+            align-items: center;
+            cursor: pointer;
+            margin : 0 200px;
+            animation-duration: 2.3s;
+        }
+        .scrolled-project-2{
+            color : #ffffff;
+            display :flex;
+            align-items: center;
+            cursor: pointer;
+            margin : 0 200px;
+            float:right;
+            animation-duration : 2.3s;
+        }
+        .project-text{
+            margin-left : 100px;
+        }
+        .projects-main{
+            height : 1000px;
+        }
+    </style>
+</head>
+  
+<body >
+    <div class="all">
+        <div class="wrapper">
+            <div class="image__circle animate__animated animate__fadeInDown">
+                <h4 class="name__circle word-1 animate__animated animate__fadeInUp">J</h4>
+                <h4 class="name__circle word-2 animate__animated animate__fadeInUp">O</h4>
+                <h4 class="name__circle word-3 animate__animated animate__fadeInUp">H</h4>
+                <h4 class="name__circle word-4 animate__animated animate__fadeInUp">N</h4>
+            </div>
+            <div class="main__title animate__animated animate__fadeInLeft">
+                <h1>Hello</h1>
+                <h4>My Name is John Doe</h4>
+            </div>
+        </div>
+        <div class="scroller animate__animated">
+            <div class="box animate__animated ">
+                <h4 class="box__info about-1  animate__animated animate__fadeInUp">
+                    A
+                </h4>
+                <h4 class="box__info about-2 animate__animated animate__fadeInUp">
+                    B
+                </h4>
+                <h4 class="box__info about-3 animate__animated animate__fadeInUp">
+                    O
+                </h4>
+                <h4 class="box__info about-4 animate__animated animate__fadeInUp">
+                    U
+                </h4>
+                <h4 class="box__info about-5 animate__animated animate__fadeInUp">
+                    T
+                </h4>
+                <img class="img" src="./images/image-2.jpg" alt="image-2">
+            </div>
+            <div class="about animate__animated">
+                <p class="about-text animate__animated">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae voluptates eos sequi incidunt autem quaerat ullam odit quibusdam error accusantium, repellendus, a recusandae natus. Eveniet tenetur obcaecati vitae minus quibusdam.</p>
+            </div>
+        </div>
+    </div>
+    <div class="projects">
+        <h1 class="works works-1 animate__animated animate__fadeInUp">W</h1>
+        <h1 class="works works-2 animate__animated animate__fadeInDown">O</h1>
+        <h1 class="works works-3 animate__animated animate__fadeInUp">R</h1>
+        <h1 class="works works-4 animate__animated animate__fadeInDown">K</h1>
+        <h1 class="works works-5 animate__animated animate__fadeInUp">S</h1>
+    </div>
+    <div class="projects-main">
+            <div class="project animate__animated animate__slideInLeft">
+                <img class="img" src="./images/Building.jpg" alt="images" />
+                <h2 class="project-text">Ostudio Project</h2>
+            </div> 
+        <div class="project-2 animate__animated animate__slideInRight">
+            <img class="img" src="./images/Building.jpg" alt="images" />
+            <h2 class="project-text">Ostudio Project</h2>
+        </div> 
+    </div>
+    <div class="projects-main">
+        <div class="project animate__animated animate__slideInLeft">
+            <img class="img" src="./images/Building.jpg" alt="images" />
+            <h2 class="project-text">Ostudio Project</h2>
+        </div> 
+        <div class="project-2 animate__animated animate__slideInRight">
+            <img class="img" src="./images/Building.jpg" alt="images" />
+            <h2 class="project-text">Ostudio Project</h2>
+        </div> 
+    </div>
+  
+    <script>
+        $(function () {
+            var box = $(".box");
+            var boxInfo = $(".box__info");
+            var aboutCont = $(".about");
+            var aboutTxt= $(".about-text");
+            var projects = $(".projects");
+            var project = $(".project")
+            var project2 = $(".project-2")
+            $(window).scroll(function () {
+                var scroll = $(window).scrollTop();
+                if (scroll >= 555) {
+                    box.removeClass("box")
+                    .addClass("scrolled-box")
+                    .addClass("animate__slideInRight")
+                } 
+                // else {
+                //     box.removeClass("scrolled-box")
+                //             .addClass("box")
+                //             // .addClass("animate__zoomOut")
+                // }
+            });
+            $(window).scroll(function(){
+                var scroll = $(window).scrollTop();
+                if(scroll>=600){
+                    aboutCont.removeClass("about").addClass("scrolled-about").addClass("animate__slideInLeft")
+                }
+                if(scroll>=850){
+                    aboutTxt.removeClass("about-text").addClass("scrolled-about-text").addClass("animate__fadeInUp")
+                }
+                if(scroll >=1100){
+                    projects.removeClass("projects").addClass("scrolled-projects")
+                }
+                if(scroll >=1600){
+                    project.removeClass("project").addClass("scrolled-project")
+                }
+                if(scroll>=2400){
+                    project2.removeClass("project-2").addClass("scrolled-project-2")
+                }
+                // if(scroll>=900){
+                //     var height = aboutCont.height();
+                //     var width = aboutCont.width();
+                //     aboutCont.height(height-30);
+                //     aboutCont.width(width-20);
+                // }
+            })
+        });
+    </script>
+</body>
+  
+</html>
