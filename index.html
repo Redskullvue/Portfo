@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>New OStudio</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -17,6 +20,23 @@
   </head>
 
   <body>
+    <div id="trail-cursor" data-circle="20"></div>
+    <div class="preloader">
+      <h1
+        class="animate__animated animate__wobble"
+        style="animation-iteration-count: infinite"
+      >
+        Loading ...
+      </h1>
+    </div>
+    <div class="header animate__animated animate__lightSpeedInLeft">
+      <ul class="header-items">
+        <li class="header-item">Home</li>
+        <li class="header-item">Projects</li>
+        <li class="header-item">About</li>
+        <li class="header-item">Contact</li>
+      </ul>
+    </div>
     <div class="all">
       <div class="wrapper">
         <div class="image__circle animate__animated animate__fadeInDown">
@@ -135,7 +155,7 @@
     </div>
     <div class="contact-main">
       <img
-        class="contact-image animate__animated animate__fadeInLeft"
+        class="contact-image animate__animated animate__tada"
         src="./images/contact.png"
       />
       <div class="contact-info animate__animated animate__fadeInRight">
@@ -148,6 +168,9 @@
           <p>+21 77 777 77 77</p>
         </h4>
       </div>
+    </div>
+    <div style="color: #ffffff">
+      © 2023 Copy Right All Rights are Reserved To Ostudio
     </div>
 
     <script>
@@ -164,6 +187,13 @@
         var contactTitle = $(".contact-title");
         var contactInfo = $(".contact-info");
         var contactImage = $(".contact-image");
+        var header = $(".header");
+        $(window).on("load", function () {
+          $(".preloader").fadeOut(2000, function () {
+            $(".preloader").remove();
+          });
+        });
+
         $(window).scroll(function () {
           var scroll = $(window).scrollTop();
           if (scroll >= 555) {
@@ -178,6 +208,11 @@
         });
         $(window).scroll(function () {
           var scroll = $(window).scrollTop();
+          if (scroll >= 100) {
+            header.removeClass("header").addClass("scrolled-header");
+          } else {
+            header.removeClass("scrolled-header").addClass("header");
+          }
           if (scroll >= 600) {
             aboutCont
               .removeClass("about")
@@ -253,5 +288,6 @@
         });
       });
     </script>
+    <script src="./cursor.js"></script>
   </body>
 </html>
